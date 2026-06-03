@@ -1,0 +1,1262 @@
+/* VARIABLES GLOBALES - FÁCIL CONFIGURACIÓN */
+:root {
+    --primary-bg: #0A0F18;
+    /* Negro Tecnológico Industrial */
+    --secondary-bg: #141C2B;
+    /* Gris Oscuro Metalizado */
+    --accent-color: #00A8CC;
+    /* Cian Eléctrico / Acento Moderno */
+    --text-main: #F4F6F9;
+    /* Blanco/Gris Claro de Alta Lectura */
+    --text-muted: #A0AAB5;
+    /* Gris para textos secundarios */
+    --light-section: #1A2436;
+    /* Para fondos alternados claros */
+    --card-bg: #111926;
+    --font-stack: 'Montserrat', sans-serif;
+}
+
+/* RESET & ESTILOS BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: transparent;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-section);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+/* NAVBAR HEADER */
+.main-header {
+    background-color: rgba(10, 15, 24, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+.btn-nav {
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 8px 20px !important;
+}
+
+.btn-nav:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-bg) !important;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* HERO CARRUSEL */
+/* =========================================
+   HERO CARRUSEL (LAYOUT FLOTANTE / DASHBOARD)
+   ========================================= */
+.hero-carousel {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 60px;
+    /* Compensa el espacio del navbar */
+    background: transparent;
+}
+
+/* El contenedor principal ya no ocupa el 100% de la pantalla */
+.carousel-track {
+    width: 90%;
+    max-width: 1300px;
+    height: 70vh;
+    /* Altura controlada para dejar ver el fondo arriba y abajo */
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    /* Espacio en el centro para ver el fondo animado */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* CAJA DE TEXTO (GLASSMORPHISM B2B) */
+.carousel-content {
+    flex: 1;
+    background: rgba(10, 15, 24, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 60px 50px;
+    border-radius: 12px;
+    /* Acento tecnológico lateral (Neón sutil) */
+    border-left: 4px solid var(--accent-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 20px 0 40px -20px rgba(0, 168, 204, 0.15);
+    /* Resplandor interno */
+    text-align: left;
+    /* Formalidad corporativa */
+    max-width: 500px;
+}
+
+/* ANIMACIÓN DEL TEXTO (Entrada lateral) */
+.carousel-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 168, 204, 0.4);
+    /* Brillo neón en el título */
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide.active .carousel-content h2 {
+    transform: translateX(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+.carousel-slide.active .carousel-content p {
+    transform: translateX(0);
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+
+/* CAJA DE IMAGEN (CINEMÁTICA FLOTANTE) */
+.carousel-image-box {
+    flex: 1.2;
+    /* Toma un poco más de espacio que el texto */
+    height: 90%;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    /* Efecto holográfico oscuro (Sombra intensa + borde neón) */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 0 30px rgba(0, 168, 204, 0.15);
+}
+
+/* EFECTO KEN BURNS ASIGNADO A LA CAJA */
+.carousel-slide .carousel-image-box {
+    background-size: 120%;
+    transition: background-size 8s ease-out;
+}
+
+.carousel-slide.active .carousel-image-box {
+    background-size: 100%;
+}
+
+/* VIÑETA PARA RESALTAR LA MAQUINARIA */
+.carousel-image-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 10%, rgba(10, 15, 24, 0.7) 100%);
+    z-index: 1;
+}
+
+/* CONTROLES DEL CARRUSEL (Reposicionados) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 15, 24, 0.6);
+    border: 1px solid rgba(0, 168, 204, 0.3);
+    color: var(--accent-color);
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+/* Pegados a los extremos del contenedor */
+.carousel-btn.prev {
+    left: -60px;
+}
+
+.carousel-btn.next {
+    right: -60px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: -40px;
+    /* Colocados debajo del track */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.indicator.active {
+    background: var(--accent-color);
+    width: 30px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+/* =========================================
+   BARRA DE ESTADÍSTICAS (MÉTRICAS DE RENDIMIENTO)
+   ========================================= */
+.stats-section {
+    position: relative;
+    z-index: 5;
+    margin-top: -50px;
+    /* Superposición elegante sobre el Hero */
+    margin-bottom: 60px;
+}
+
+.stats-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stats-header .small-title {
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: rgba(10, 15, 24, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 2px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+    text-shadow: 0 0 15px rgba(0, 168, 204, 0.5);
+}
+
+.stat-number h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-number span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ajuste Responsivo Móvil */
+@media (max-width: 768px) {
+    .stats-section {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    .stat-card {
+        padding: 20px 15px;
+    }
+
+    .stat-number h3 {
+        font-size: 2.8rem;
+    }
+}
+
+/* SECCIÓN QUIÉNES SOMOS / MISIÓN / VISIÓN */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.about-card {
+    background-color: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 6px;
+    border-top: 3px solid var(--accent-color);
+    transition: transform 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.about-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* CASOS DE ÉXITO (GRID) */
+/* =========================================
+   FONDOS TRANSPARENTES (GLASSMORPHISM B2B)
+   Para Casos de Éxito y Marcas
+   ========================================= */
+
+/* Nuevo estilo para Casos de Éxito */
+.glass-panel {
+    background: rgba(10, 15, 24, 0.35);
+    /* Fondo oscuro muy transparente */
+    backdrop-filter: blur(8px);
+    /* Difumina el fondo CAD ligeramente */
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    /* Sombra interna para dar volumen */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    /* Separación ampliada para que el fondo dinámico respire */
+}
+
+/* Contenedor principal de la tarjeta con efecto cristal */
+.project-item {
+    background: rgba(10, 15, 24, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 3px solid var(--accent-color);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 168, 204, 0.15);
+    /* Acento neón al interactuar */
+}
+
+/* Envoltura de la imagen superior */
+.project-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-item:hover .project-img-wrapper img {
+    transform: scale(1.1);
+    /* Efecto zoom al acercar el mouse */
+}
+
+/* Contenedor de texto en la base de la tarjeta */
+.project-card-content {
+    padding: 25px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-card-content h4 {
+    color: var(--text-main);
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.project-item:hover .project-card-content h4 {
+    color: var(--accent-color);
+    /* El título se enciende en cian al pasar el cursor */
+}
+
+.btn-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.project-item:hover .btn-link {
+    color: var(--text-main);
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 24, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-item:hover img {
+    transform: scale(1.1);
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h4 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+/* CINTILLA DE COLABORACIONES (MARQUEE INFINITO) */
+/* Reemplaza tu clase .colabs-section actual por esta: */
+.colabs-section {
+    padding: 60px 0;
+    /* Eliminamos el var(--secondary-bg) sólido y aplicamos el cristal */
+    background: rgba(10, 15, 24, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Opcional: Eliminar la clase .bg-light si ya no la usarás en ningún otro lado */
+/* .bg-light { background-color: var(--light-section); } */
+.small-title {
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.logos-ticker {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    /* LA MAGIA DEL FADE: Máscara lineal para desvanecer los bordes */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logos-ticker-track {
+    display: flex;
+    width: max-content;
+    /* Velocidad un poco más lenta para mayor elegancia */
+    animation: scrollTicker 35s linear infinite;
+    gap: 80px;
+    /* Separación uniforme entre logos */
+    padding-right: 80px;
+    /* Necesario para que el loop no tenga saltos */
+}
+
+/* ... Resto de tu CSS de la sección .logos-ticker-track ... */
+/* Pausar la animación cuando el usuario interactúa */
+.logos-ticker:hover .logos-ticker-track {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    /* Contenedor del logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    /* Ancho fijo para mantener la separación uniforme */
+    user-select: none;
+}
+
+.logo-item img {
+    max-width: 100%;
+    max-height: 65px;
+    /* Controla la altura para que no desentonen marcas muy altas/anchas */
+    object-fit: contain;
+    /* Evita que la imagen se deforme */
+
+    /* Efecto elegante: escala de grises y semitransparente por defecto */
+    /* Base: Monocromático, baja opacidad */
+    filter: grayscale(100%) opacity(0.4);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Recupera el color original y hace un ligero zoom al pasar el mouse */
+/* Efecto al pasar el mouse por encima del logo */
+.logo-item img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+    /* Resplandor cinemático que coincide con el acento de la página */
+    filter: drop-shadow(0 0 15px rgba(0, 168, 204, 0.4));
+}
+
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+    .logos-ticker-track {
+        gap: 40px;
+        padding-right: 40px;
+        /* En móvil el recorrido visual es más corto, bajamos el tiempo */
+        animation: scrollTicker 20s linear infinite;
+    }
+
+    .logo-item {
+        width: 120px;
+    }
+
+    .logo-item img {
+        max-height: 50px;
+    }
+
+    .logos-ticker {
+        /* En móvil, el desvanecimiento es más corto para no ocultar logos */
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+}
+
+/* =========================================
+   SECCIÓN CONTACTO (GRID SPLIT LAYOUT)
+   ========================================= */
+.contact-grid {
+    display: grid;
+    /* Divide el espacio: 1 fracción para la info, 1.5 fracciones para el form */
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 40px;
+    align-items: stretch;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Panel Izquierdo (Información Corporativa) */
+.contact-info-panel {
+    background: rgba(10, 15, 24, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--accent-color); /* Acento neón lateral */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info-panel h3 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: var(--accent-color);
+}
+
+/* IMPORTANTE: Quita el margin: 0 auto; de tu clase .form-container existente 
+   para que se adapte bien al Grid. Solo debes borrar esa línea en tu CSS. */
+
+/* Ajuste Responsivo Móvil */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Una columna debajo de la otra en móviles */
+        gap: 30px;
+    }
+}
+
+/* FORMULARIO DE CONTACTO */
+/* =========================================
+   FORMULARIO DE CONTACTO (TERMINAL DE CRISTAL)
+   ========================================= */
+.form-container {
+/*    max-width: 650px;
+    margin: 0 auto; */
+    /* Efecto cristal esmerilado unificado */
+    background: rgba(10, 15, 24, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 3px solid var(--accent-color); /* Acento neón superior */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    /* Entradas de texto más oscuras para hacer contraste con el cristal */
+    background-color: rgba(5, 8, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-family: var(--font-stack);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    /* Resplandor tecnológico al momento de que el usuario escribe */
+    box-shadow: 0 0 12px rgba(0, 168, 204, 0.25);
+    background-color: rgba(10, 15, 24, 0.95);
+}
+
+/* El botón se mantiene igual, pero te dejo la clase aquí por si quieres reescribirla completa */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--primary-bg);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #008cb3;
+    transform: translateY(-2px);
+}
+
+/* LIGHTBOX MODAL */
+/* LIGHTBOX MODAL (FONDO HOLOGRÁFICO ESMERILADO) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Bajamos la opacidad del negro a 0.75 para dejar pasar la luz del láser */
+    background-color: rgba(10, 15, 24, 0.75); 
+    /* Aumentamos el desenfoque para que las líneas CAD no corten las fotos */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lightbox-main-img {
+    width: 100%;
+    height: 60vh;
+    /* Altura máxima del 60% de la pantalla */
+    background-color: #05080d;
+    /* Fondo oscuro por si la foto no llena el ancho */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* LA MAGIA: Muestra la foto completa sin importar su proporción */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    text-align: center;
+}
+
+.lightbox-caption h4 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.lightbox-caption p {
+    color: var(--text-main);
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Tira de Miniaturas (Filmstrip) */
+.lightbox-thumbnails {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    overflow-x: auto;
+    /* Permite scroll horizontal si son muchas fotos */
+    padding-bottom: 10px;
+}
+
+.lightbox-thumbnails img {
+    height: 80px;
+    width: 120px;
+    object-fit: cover;
+    /* Miniaturas uniformes */
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s, border 0.3s;
+    border: 2px solid transparent;
+}
+
+.lightbox-thumbnails img:hover,
+.lightbox-thumbnails img.active-thumb {
+    opacity: 1;
+    border-color: var(--accent-color);
+}
+
+/* FOOTER */
+/* =========================================
+   FOOTER (CRISTAL OSCURO / ANCLA VISUAL)
+   ========================================= */
+.main-footer {
+    /* Fondo casi negro para anclar el sitio, pero con ligera transparencia */
+    background: rgba(5, 8, 13, 0.85); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 0;
+    text-align: center;
+    /* Acento de neón muy sutil para cerrar el diseño tecnológico */
+    border-top: 1px solid rgba(0, 168, 204, 0.3); 
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    position: relative; /* Asegura que se posicione sobre el fondo animado */
+    z-index: 10;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+/* ESTILOS ENLACES LEGALES FOOTER */
+.footer-legal-links {
+    margin: 15px 0;
+    font-size: 0.85rem;
+}
+
+.footer-legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--accent-color);
+    /* Cian eléctrico al pasar el mouse */
+    text-decoration: underline;
+}
+
+.footer-legal-links .divider {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-tagline {
+    margin-top: 10px !important;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* =========================================
+   REDES SOCIALES (BOTONES CRISTAL / NEÓN)
+   ========================================= */
+.social-networks {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 35px 0; /* Da respiro entre las políticas y los textos finales */
+}
+
+.social-networks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* Fondo esmerilado que hace juego con las tarjetas */
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.social-networks a svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* Interacción de Neón al pasar el cursor */
+.social-networks a:hover {
+    color: var(--primary-bg); /* El ícono se vuelve oscuro para contrastar */
+    background-color: var(--accent-color); /* El fondo se llena de cian */
+    border-color: var(--accent-color);
+    transform: translateY(-5px); /* Se eleva */
+    box-shadow: 0 10px 20px rgba(0, 168, 204, 0.4); /* Resplandor holográfico */
+}
+
+.social-networks a:hover svg {
+    transform: scale(1.1); /* Ligero zoom al ícono */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-bg);
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu.open {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .carousel-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .carousel-btn {
+        display: none;
+    }
+
+    /* Ocultar flechas en móvil para mejorar UX táctil */
+}
+
+/* =========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    /* Verde oficial de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse-wa 2s infinite;
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20BA56;
+    animation: none;
+    /* Detiene el pulso al interactuar */
+}
+
+/* Animación de pulso para llamar la atención sutilmente */
+@keyframes pulse-wa {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Ajustes para dispositivos móviles (Responsive) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* En móvil, el layout se apila (Imagen arriba, texto abajo) */
+    .carousel-slide {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .carousel-track {
+        height: 85vh;
+    }
+
+    .carousel-image-box {
+        flex: 0.8;
+        width: 100%;
+    }
+
+    .carousel-content {
+        flex: none;
+        padding: 30px 20px;
+        max-width: 100%;
+    }
+
+    .carousel-content h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-btn.prev,
+    .carousel-btn.next {
+        display: none;
+    }
+
+    /* Ocultos en móvil */
+}
+
+/* =========================================
+   GRÁFICAS DE FONDO DINÁMICAS (ESTRUCTURA CAD / 3D)
+   ========================================= */
+
+#bg-graphics-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--primary-bg);
+    overflow: hidden;
+    pointer-events: none;
+    /* Asegura que no bloquee clics */
+}
+
+/* CAPA 1: Retícula Estructurada (Plano de Ingeniería / Banda Transportadora) */
+#bg-graphics-overlay::before {
+    content: "";
+    position: absolute;
+    /* Tamaño al doble para evitar cortes en los bordes al aplicar la perspectiva 3D */
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    /* Grid de líneas tecnológicas limpias y estructuradas */
+    background-image:
+        linear-gradient(rgba(0, 168, 204, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 204, 0.25) 1px, transparent 1px);
+    background-size: 60px 60px;
+
+    /* Proyección 3D Isométrica para dar profundidad industrial */
+    transform-origin: center;
+    transform: perspective(800px) rotateX(60deg) rotateZ(15deg);
+
+    /* Flujo continuo: Mueve exactamente un bloque de 60px para un loop perfecto e infinito */
+    animation: cadFlow 10s linear infinite;
+}
+
+/* CAPA 2: Escáner Láser Neón (Iluminación Cinemática) */
+#bg-graphics-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Haz de luz de alto contraste que barre la pantalla */
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 168, 204, 0.02) 45%,
+            rgba(0, 168, 204, 0.5) 50%,
+            /* Brillo máximo en el centro del haz */
+            rgba(0, 168, 204, 0.02) 55%,
+            transparent 100%);
+    background-size: 100% 200%;
+
+    /* Animación del láser subiendo y bajando */
+    animation: neonScan 8s ease-in-out infinite;
+}
+
+/* ANIMACIONES */
+@keyframes cadFlow {
+    0% {
+        transform: perspective(800px) rotateX(60deg) rotateZ(15deg) translateY(0);
+    }
+
+    100% {
+        transform: perspective(800px) rotateX(60deg) rotateZ(15deg) translateY(60px);
+    }
+}
+
+@keyframes neonScan {
+    0% {
+        background-position: 0 -100vh;
+    }
+
+    100% {
+        background-position: 0 100vh;
+    }
+}
